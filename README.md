@@ -1,3 +1,3 @@
 ## Credits
 
-Boilerplate: `config/connection.js`
+Boilerplate: `config/connection.js`, `server.js`
