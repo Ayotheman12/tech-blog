@@ -1,4 +1,3 @@
-// id, username, password
 // Import statements
 const {Model, DataTypes} = require("sequelize");
 const bcrypt = require("brcrypt");
@@ -46,6 +45,7 @@ User.init(
         },
         sequelize,
         timestamps: false,
+        freezeTableName: true,
         underscored: true,
         modelName: "user"
     }
