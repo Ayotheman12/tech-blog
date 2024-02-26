@@ -1,6 +1,6 @@
 // Import statements
 const {Model, DataTypes} = require("sequelize");
-const bcrypt = require("brcrypt");
+const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
 // Create new Model object
@@ -28,7 +28,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                length: [8]
+                len: [8]
             }
         }
     },
