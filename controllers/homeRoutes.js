@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 
         // Render page
         res.render("homepage", {
-            title: "Homepage",
+            title: "Tech Blog",
             loggedIn: req.session.loggedIn,
             posts
         });
@@ -48,6 +48,21 @@ router.get("/dashboard", async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
+
+// Login Page
+router.get("/login", async (req, res) => {
+    // Redirect to the dashboard if the user is logged in
+    if (req.session.loggedIn) {
+        res.redirect("/dashboard");
+        return;
+    }
+
+    // Render the page
+    res.render("login", {
+        title: "Tech Blog",
+        loggedIn: req.session.loggedIn
+    });
+});
 
 module.exports = router;
