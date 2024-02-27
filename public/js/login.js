@@ -24,7 +24,7 @@ const handleLogin = async (event) => {
 
 // Switch between Login and Sign Up
 const handleSwitch = (event) => {
-    if (event.target.dataset["form-type"] === "login") {
+    if (event.target.dataset.formType === "login") {
         document.querySelector("#form-title").innerHTML = "Sign Up";
         document.querySelector("#submit-button").innerHTML = "Sign Up";
         document.querySelector("#switch-button").innerHTML = "Log In Instead?";
