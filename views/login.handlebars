@@ -1,9 +1,10 @@
-<h2>Login</h2>
-<form>
+<h2 id="form-title">Login</h2>
+<form id="login-form">
     <label for="username">Username</label>
     <input type="text" id="username" />
     <label for="password">Password</label>
     <input type="password" id="password" />
-    <button type="submit">Log In</button>
+    <button type="submit" id="submit-button">Log In</button>
 </form>
-<button id="switch-button">Sign Up Instead?</button>
+<button id="switch-button" data-form-type="login">Sign Up Instead?</button>
+<script src="./js/login.js"></script>
