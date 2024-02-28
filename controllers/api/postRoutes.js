@@ -12,6 +12,7 @@ router.post("/", async (req, res) => {
         // Respond with the new post
         res.json({newPost});
     } catch (err) {
+        console.error(err);
         res.status(400).json(err);
     }
 });
@@ -29,6 +30,7 @@ router.put("/:id", async (req, res) => {
         // Respond with the updated post object (just an array with a number in it)
         res.json(updatedPost);
     } catch (err) {
+        console.error(err);
         res.status(500).json(err);
     }
 });
@@ -46,6 +48,7 @@ router.delete("/:id", async (req, res) => {
         // Respond with the deleted post object (just a number)
         res.json(deletedPost);
     } catch (err) {
+        console.error(err);
         res.status(500).json(err);
     }
 });

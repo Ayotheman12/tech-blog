@@ -27,7 +27,7 @@ const handleNewComment = async (event) => {
 }
 
 // Make the comment editor visible
-const handleEditorToggle = (event) => {
+const handleEditorToggle = () => {
     document.querySelector("#new-comment-editor").setAttribute("style", "");
     document.querySelector("#editor-toggle-button").setAttribute("style", "display: none");
 }
