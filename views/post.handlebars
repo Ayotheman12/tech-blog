@@ -12,3 +12,13 @@
     <p>-{{post.user.username}}, {{formatDate comment.date_created}}</p>
 </div>
 {{/each}}
+
+<button id="new-comment-button">Add New Comment</button>
+
+<div id="new-comment-editor">
+    <form>
+        <label for="comment-input">Comment</label>
+        <input type="text" id="comment-input" />
+        <button type="submit">Add Comment</button>
+    </form>
+</div>
