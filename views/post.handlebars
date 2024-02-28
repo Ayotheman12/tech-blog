@@ -1,4 +1,4 @@
-<div>
+<div class="post" data-post-id="{{post.id}}">
     <header>
         <h2>{{post.title}}</h2>
         <p>Posted by {{post.user.username}} on {{formatDate post.date_created}}</p>
@@ -16,9 +16,11 @@
 <button id="new-comment-button">Add New Comment</button>
 
 <div id="new-comment-editor">
-    <form>
+    <form id="new-comment-form">
         <label for="comment-input">Comment</label>
         <input type="text" id="comment-input" />
         <button type="submit">Add Comment</button>
     </form>
 </div>
+
+<script src="/js/comment.js"></script>
