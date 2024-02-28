@@ -17,7 +17,7 @@ const handleNewComment = async (event) => {
             headers: {"Content-Type": "application/json"}
         });
 
-        // If successful reload the page, else alert the user
+        // If successful reload the page (which also hides the editor and shows the toggle button), else alert the user
         if (response.ok) {
             location.reload();
         } else {
@@ -26,5 +26,12 @@ const handleNewComment = async (event) => {
     }
 }
 
-// Add event listener
+// Make the comment editor visible
+const handleEditorToggle = (event) => {
+    document.querySelector("#new-comment-editor").setAttribute("style", "");
+    document.querySelector("#editor-toggle-button").setAttribute("style", "display: none");
+}
+
+// Add event listeners
 document.querySelector("#new-comment-form").addEventListener("submit", handleNewComment);
+document.querySelector("#editor-toggle-button").addEventListener("click", handleEditorToggle);
