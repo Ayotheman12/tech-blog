@@ -42,6 +42,70 @@ router.get("/dashboard", async (req, res) => {
 
         // Render the page
         res.render("dashboard", {
+            editor: {
+                enabled: false
+            },
+            title: "Your Dashboard",
+            loggedIn: req.session.loggedIn,
+            posts
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+
+// Dashboard post editor - new post
+router.get("/dashboard/edit", async (req, res) => {
+    try {
+        // Get the user's posts
+        const postData = await Post.findAll({
+            where: {
+                user_id: req.session.userId
+            }
+        });
+
+        // Serialize the data
+        const posts = postData.map((post) => post.get({plain: true}));
+
+        // Render the page
+        res.render("dashboard", {
+            editor: {
+                enabled: true,
+                type: "create"
+            },
+            title: "Your Dashboard",
+            loggedIn: req.session.loggedIn,
+            posts
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+
+// Dashboard post editor - update post
+router.get("/dashboard/edit/:id", async (req, res) => {
+    try {
+        // Get the user's posts
+        const postData = await Post.findAll({
+            where: {
+                user_id: req.session.userId
+            }
+        });
+
+        // Serialize the data
+        const posts = postData.map((post) => post.get({plain: true}));
+
+        console.log(req.params.id);
+
+        // Render the page
+        res.render("dashboard", {
+            editor: {
+                enabled: true,
+                type: "update",
+                edit_id: Number(req.params.id)
+            },
             title: "Your Dashboard",
             loggedIn: req.session.loggedIn,
             posts

@@ -1,21 +1,59 @@
 {{#each posts as |post|}}
 <div>
-    <header>{{post.title}}</header>
-    <p>{{formatDate post.date_created}}</p>
+    <a href="/dashboard/edit/{{post.id}}">
+        <header>{{post.title}}</header>
+        <p>{{formatDate post.date_created}}</p>
+    </a>
 </div>
-{{/each}}
-<button id="new-post-button">+ New Post</button>
 
-<div id="post-editor" style="display: none">
-    <h2 id="editor-title">Create New Post</h2>
-    <form id="editor-form" data-editor-type="create">
+<!-- Display the post editor if it's enabled, it's in update mode, and the post's id matches the editor's -->
+{{#if ../editor.enabled}}
+{{#if (isEqual ../editor.type "update")}}
+{{#if (isEqual ../editor.edit_id post.id)}}
+<div id="post-editor">
+    <h2>Update Post</h2>
+    <form id="editor-form">
+        <label for="post-title">Title</label>
+        <input type="text" id="post-title" />
+        <label for="post-content">Content</label>
+        <input type="text" id="post-content" />
+        <button type="submit">Update Post</button>
+        <button id="delete-button">Delete Post</button>
+    </form>
+</div>
+{{/if}}
+{{/if}}
+{{/if}}
+
+{{/each}}
+
+{{#unless editor.enabled}}
+<button id="new-post-button">+ New Post</button>
+{{/unless}}
+
+{{#if editor.enabled}}
+{{#if (isEqual editor.type "create")}}
+<div id="post-editor">
+    <h2>Create New Post</h2>
+    <form id="editor-form">
         <label for="post-title">Title</label>
         <input type="text" id="post-title" />
         <label for="post-content">Content</label>
         <input type="text" id="post-content" />
         <button type="submit">Create Post</button>
-        <button id="delete-button" style="display: none">Delete Post</button>
     </form>
 </div>
+{{/if}}
+{{/if}}
 
+{{#unless editor.enabled}}
 <script src="/js/post.js"></script>
+{{/unless}}
+{{#if editor.enabled}}
+{{#if (isEqual editor.type "create")}}
+<script src="/js/postCreate.js"></script>
+{{/if}}
+{{#if (isEqual editor.type "update")}}
+<script src="/js/postUpdate.js"></script>
+{{/if}}
+{{/if}}
