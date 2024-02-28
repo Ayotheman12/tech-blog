@@ -67,9 +67,13 @@ router.get("/post/:id", async (req, res) => {
 
         // Get the comments
         const commentData = await Comment.findAll({
-           where: {
-               post_id: req.params.id
-           }
+            where: {
+                post_id: req.params.id
+            },
+            include: {
+                model: User,
+                attributes: ["username"]
+            }
         });
 
         // Serialize the data

@@ -9,7 +9,7 @@
 {{#each comments as |comment|}}
 <div>
     <p>{{comment.content}}</p>
-    <p>-{{post.user.username}}, {{formatDate comment.date_created}}</p>
+    <p>-{{comment.user.username}}, {{formatDate comment.date_created}}</p>
 </div>
 {{/each}}
 
