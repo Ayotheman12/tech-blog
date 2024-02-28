@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const {Post, User} = require("../models");
+const {Post, User, Comment} = require("../models");
 
 // Homepage
 router.get("/", async (req, res) => {
@@ -22,6 +22,7 @@ router.get("/", async (req, res) => {
             posts
         });
     } catch (err) {
+        console.error(err);
         res.status(500).json(err);
     }
 });
@@ -46,6 +47,44 @@ router.get("/dashboard", async (req, res) => {
             posts
         });
     } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+    }
+});
+
+// Post Page
+router.get("/post/:id", async (req, res) => {
+    try {
+        // Get the post
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ["username"]
+                }
+            ]
+        });
+
+        // Get the comments
+        const commentData = await Comment.findAll({
+           where: {
+               post_id: req.params.id
+           }
+        });
+
+        // Serialize the data
+        const post = postData.get({plain: true});
+        const comments = commentData.map((comment) => comment.get({plain: true}));
+
+        // Render the page
+        res.render("post", {
+            title: "Tech Blog",
+            loggedIn: req.session.loggedIn,
+            post,
+            comments
+        });
+    } catch (err) {
+        console.error(err);
         res.status(500).json(err);
     }
 });
