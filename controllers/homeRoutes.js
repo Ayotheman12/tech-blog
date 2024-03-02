@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const {Post, User, Comment} = require("../models");
+const withAuth = require("../utils/auth");
 
 // Homepage
 router.get("/", async (req, res) => {
@@ -28,7 +29,7 @@ router.get("/", async (req, res) => {
 });
 
 // Dashboard
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
     try {
         // Get the user's posts
         const postData = await Post.findAll({
@@ -56,7 +57,7 @@ router.get("/dashboard", async (req, res) => {
 });
 
 // Dashboard post editor - new post
-router.get("/dashboard/edit", async (req, res) => {
+router.get("/dashboard/edit", withAuth, async (req, res) => {
     try {
         // Get the user's posts
         const postData = await Post.findAll({
@@ -85,7 +86,7 @@ router.get("/dashboard/edit", async (req, res) => {
 });
 
 // Dashboard post editor - update post
-router.get("/dashboard/edit/:id", async (req, res) => {
+router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
     try {
         // Get the user's posts
         const postData = await Post.findAll({
@@ -117,7 +118,7 @@ router.get("/dashboard/edit/:id", async (req, res) => {
 });
 
 // Post Page
-router.get("/post/:id", async (req, res) => {
+router.get("/post/:id", withAuth, async (req, res) => {
     try {
         // Get the post
         const postData = await Post.findByPk(req.params.id, {
