@@ -1,8 +1,4 @@
-/* grey: #3B3C35 */
-/* purple grey: #38353C */
-/* yellow: #D7E639 */
-/* red: #E64339 */
-/* blue: #3992E6 */
+/* Variables */
 :root {
     --grey: #3B3C35;
     --white: #FFFFFF;
@@ -11,18 +7,16 @@
     --blue: #3992E6;
 }
 
-/* Reset box styling */
+/* Overall stylings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/* Body */
-html,
 body {
-    /* Give body a parent height to scale it against */
-    height: 100%;
+    background-color: var(--grey);
 }
 
 /* Header */
@@ -35,14 +29,61 @@ h1 {
     color: var(--grey);
 }
 
+body > header > nav > * {
+    margin: 0 1em 0 0;
+    color: var(--grey);
+    text-decoration: none;
+}
+
 /* Main */
 main {
     background-color: var(--grey);
     color: var(--white);
     height: 100%;
-    padding: 1em;
+    padding: 1em 2em;
 }
 
 main a {
     color: var(--white);
+}
+
+/* Cards */
+.card {
+    border: solid 0.2em var(--yellow);
+    margin: 1em 0 2em 0;
+}
+
+.card > * {
+    padding: 0.5em;
+}
+
+.card-header {
+    width: 100%;
+    background-color: var(--yellow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header * {
+    color: var(--grey);
+}
+
+/* Buttons */
+button {
+    padding: 0.5em;
+    margin: 0;
+    border: 0;
+    border-radius: 0.2em;
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.no-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 100%;
 }
