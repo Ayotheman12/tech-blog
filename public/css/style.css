@@ -1,0 +1,48 @@
+/* grey: #3B3C35 */
+/* purple grey: #38353C */
+/* yellow: #D7E639 */
+/* red: #E64339 */
+/* blue: #3992E6 */
+:root {
+    --grey: #3B3C35;
+    --white: #FFFFFF;
+    --yellow: #D7E639;
+    --red: #E64339;
+    --blue: #3992E6;
+}
+
+/* Reset box styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+html,
+body {
+    /* Give body a parent height to scale it against */
+    height: 100%;
+}
+
+/* Header */
+body > header {
+    background-color: var(--yellow);
+    padding: 1em;
+}
+
+h1 {
+    color: var(--grey);
+}
+
+/* Main */
+main {
+    background-color: var(--grey);
+    color: var(--white);
+    height: 100%;
+    padding: 1em;
+}
+
+main a {
+    color: var(--white);
+}
