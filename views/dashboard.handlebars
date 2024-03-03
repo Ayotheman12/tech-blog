@@ -10,8 +10,10 @@
 {{#if ../editor.enabled}}
 {{#if (isEqual ../editor.type "update")}}
 {{#if (isEqual ../editor.edit_id post.id)}}
-<div id="post-editor">
-    <h2>Update Post</h2>
+<div class="card" id="post-editor">
+    <header class="card-header">
+        <h2>Update Post</h2>
+    </header>
     <form id="editor-form">
         <label for="post-title">Title</label>
         <input type="text" id="post-title" />
@@ -33,8 +35,10 @@
 
 {{#if editor.enabled}}
 {{#if (isEqual editor.type "create")}}
-<div id="post-editor">
-    <h2>Create New Post</h2>
+<div class="card" id="post-editor">
+    <header class="card-header">
+        <h2>Create New Post</h2>
+    </header>
     <form id="editor-form">
         <label for="post-title">Title</label>
         <input type="text" id="post-title" />
