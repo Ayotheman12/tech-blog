@@ -35,9 +35,6 @@ const handlePostUpdate = async (event) => {
 
 // Handle a click on the delete post button
 const handlePostDelete = async (event) => {
-    // Prevent the button from submitting the form
-    event.preventDefault();
-
     // Make a request to delete the post
     const response = await fetch(`/api/posts/${POST_ID}`, {
         method: "DELETE",

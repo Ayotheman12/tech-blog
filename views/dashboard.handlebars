@@ -1,8 +1,10 @@
 {{#each posts as |post|}}
 <div>
     <a href="/dashboard/edit/{{post.id}}">
-        <header>{{post.title}}</header>
-        <p>{{formatDate post.date_created}}</p>
+        <button type="button" class="post-button">
+            <header>{{post.title}}</header>
+            <p>{{formatDate post.date_created}}</p>
+        </button>
     </a>
 </div>
 
@@ -20,7 +22,7 @@
         <label for="post-content">Content</label>
         <input type="text" id="post-content" />
         <button type="submit">Update Post</button>
-        <button id="delete-button">Delete Post</button>
+        <button type="button" id="delete-button">Delete Post</button>
     </form>
 </div>
 {{/if}}

@@ -18,6 +18,12 @@
 
 body {
     background-color: var(--grey);
+    /* Make all text slightly larger */
+    font-size: 120%;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Header */
@@ -51,7 +57,11 @@ main a {
 /* Cards */
 .card {
     border: solid 0.2em var(--yellow);
-    margin: 1em 0 2em 0;
+    margin: 1em 0;
+}
+
+.card a {
+    text-decoration: underline;
 }
 
 .card > * {
@@ -78,15 +88,25 @@ button {
     border-radius: 0.2em;
     background-color: var(--blue);
     color: var(--white);
+    font-size: 100%;
+    cursor: pointer;
 }
 
 .no-button {
     background: none;
     border: none;
     padding: 0;
-    cursor: pointer;
     text-decoration: none;
     font-size: 100%;
+}
+
+.post-button {
+    width: 100%;
+    background-color: var(--yellow);
+    color: var(--grey);
+    margin: 0 0 1em 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 #delete-button {
@@ -102,5 +122,20 @@ form {
 
 form > button,
 form + button {
-    margin: 0.7em 0;
+    margin: 0.5em 0;
+    padding: 0.5em;
+}
+
+input {
+    font-size: 100%;
+}
+
+/* Comments */
+.comment {
+    border: solid 0.2em var(--yellow);
+    margin: 0 0 1em 0;
+    padding: 0.5em;
+    color: var(--yellow);
+    display: flex;
+    justify-content: space-between;
 }
