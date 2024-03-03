@@ -1,3 +1,5 @@
+const POST_ID = location.pathname.split("/").slice(-1);
+
 // Handle the submission of a new comment
 const handleNewComment = async (event) => {
     // Prevent the page from reloading on submit
@@ -12,7 +14,7 @@ const handleNewComment = async (event) => {
             method: "POST",
             body: JSON.stringify({
                 content,
-                post_id: document.querySelector(".post").dataset.postId
+                post_id: POST_ID
             }),
             headers: {"Content-Type": "application/json"}
         });
