@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Serialization",
+        "content": "Fun fact: serialization is the name for the process of transforming data to a better form for transport or storage",
+        "user_id": 1
+    },
+    {
+        "title": "What is SQL?",
+        "content": "SQL, or \"structured query language\" is a computer language used to handle data in relational databases. SQL is an important part of many web applications.",
+        "user_id": 2
+    },
+    {
+        "title": "Design by Contract",
+        "content": "Did you know that if developers provide precise specifications of their software components, other devs can use their components without investigating how the component is created! This is the principle behind design-by-contract.",
+        "user_id": 3
+    }
+]
