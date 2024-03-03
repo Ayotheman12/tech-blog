@@ -22,7 +22,7 @@ To spin up the server locally, use your terminal to navigate to the project dire
 
 If you have spun up a local instance of the server, navigate in your web browser to `http://localhost:PORT`, where `PORT` is the port being used by the server (3001 by default).
 
-Otherwise, the app is deployed to Heroku and can be accessed by visiting _____ in your web browser.
+Otherwise, the app is deployed to Heroku and can be accessed by visiting https://peaceful-ocean-56883-ea5620773588.herokuapp.com/ in your web browser.
 
 From the homepage of the blog, you can view posts that have been made. You can sign up or log in by clicking on the Login link in the navbar. Once logged in, you can view, edit, and delete your own posts, or make a new post, from your dashboard. You can find your dashboard by clicking on the Dashboard link in the navbar. If you want to logout, click on the Logout button in the navbar.
 
